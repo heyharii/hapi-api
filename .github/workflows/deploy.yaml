@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
+      - run: npm ci
       - name: Run production migration
         run: npm run migrate-prod
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      - run: npm run seed
       - uses: akhileshns/heroku-deploy@v3.8.9
         name: Deploy to Heroku
         with:
