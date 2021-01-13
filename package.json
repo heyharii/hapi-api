@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "prisma generate && tsc",
-    "start": "npx prisma studio",
+    "start": "npx @prisma/cli studio",
     "dev": "ts-node-dev --respawn ./src/index.ts",
     "postgres": "docker-compose up -d",
     "migrate-dev": "prisma migrate dev --preview-feature",
