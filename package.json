@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn ./src/index.ts",
+    "postgres": "docker-compose up -d",
     "migrate-dev": "prisma migrate dev --preview-feature",
+    "migrate-prod": "prisma migrate deploy --preview-feature",
     "seed": "ts-node ./src/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
