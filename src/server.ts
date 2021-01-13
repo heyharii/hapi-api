@@ -1,14 +1,11 @@
 import Hapi from "@hapi/hapi";
 import hapiAuthJWT from "hapi-auth-jwt2";
 import prismaPlugin from "./plugins/prisma";
-import dotenv from "dotenv";
 import usersPlugin from "./plugins/users";
 import authPlugin from "./plugins/auth";
 import boardsPlugin from "./plugins/boards";
 import tasksPlugin from "./plugins/tasks";
 import statusPlugin from "./plugins/status";
-
-dotenv.config();
 
 const server: Hapi.Server = Hapi.server({
   port: process.env.PORT || 3000,
