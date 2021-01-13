@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  firstName  String?
+  lastName   String?
+  isAdmin    Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relation fields
+  boards Board[]
+  tokens Token[]
+  Task   Task[]
+}
+
+model Token {
+  id         Int      @id @default(autoincrement())
+  valid      Boolean  @default(true)
+  expiration DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relation fields
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model Board {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relation fields
+  tasks       Task[]
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  weight    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relation fields
+  board   Board @relation(fields: [boardId], references: [id])
+  boardId Int
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+}
