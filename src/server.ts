@@ -6,6 +6,7 @@ import usersPlugin from "./plugins/users";
 import authPlugin from "./plugins/auth";
 import boardsPlugin from "./plugins/boards";
 import tasksPlugin from "./plugins/tasks";
+import statusPlugin from "./plugins/status";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ export async function createServer(): Promise<Hapi.Server> {
     usersPlugin,
     boardsPlugin,
     tasksPlugin,
+    statusPlugin,
   ]);
   return server;
 }
