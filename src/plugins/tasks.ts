@@ -16,6 +16,7 @@ const tasksPlugin = {
           auth: {
             mode: "required",
           },
+          cors: true,
           pre: [isBoardOfUserOrAdmin],
           validate: {
             params: Joi.object({
@@ -35,6 +36,7 @@ const tasksPlugin = {
           auth: {
             mode: "required",
           },
+          cors: true,
           pre: [isTaskOfUserOrAdmin],
           validate: {
             params: Joi.object({
@@ -55,6 +57,7 @@ const tasksPlugin = {
           auth: {
             mode: "required",
           },
+          cors: true,
           validate: {
             params: Joi.object({
               boardId: Joi.number().integer(),
@@ -75,6 +78,7 @@ const tasksPlugin = {
           auth: {
             mode: "required",
           },
+          cors: true,
           validate: {
             params: Joi.object({
               taskId: Joi.number().integer(),
@@ -95,6 +99,7 @@ const tasksPlugin = {
           auth: {
             mode: "required",
           },
+          cors: true,
           validate: {
             params: Joi.object({
               taskId: Joi.number().integer(),
@@ -114,6 +119,7 @@ const tasksPlugin = {
           auth: {
             mode: "required",
           },
+          cors: true,
           validate: {
             params: Joi.object({
               taskId: Joi.number().integer(),

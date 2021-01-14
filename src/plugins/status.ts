@@ -10,6 +10,7 @@ const plugin: Hapi.Plugin<undefined> = {
         h.response({ up: true }).code(200),
       options: {
         auth: false,
+        cors: true,
       },
     });
   },

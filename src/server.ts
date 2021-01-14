@@ -23,7 +23,6 @@ export async function createServer(): Promise<Hapi.Server> {
     tasksPlugin,
     statusPlugin,
   ]);
-  server.connection({ routes: { cors: true } });
   return server;
 }
 

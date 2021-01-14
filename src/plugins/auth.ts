@@ -38,6 +38,7 @@ const authPlugin: Hapi.Plugin<null> = {
         handler: authenticateHandler,
         options: {
           auth: false,
+          cors: true,
           validate: {
             payload: Joi.object({
               email: Joi.string().email().required(),
