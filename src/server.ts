@@ -10,6 +10,11 @@ import statusPlugin from "./plugins/status";
 const server: Hapi.Server = Hapi.server({
   port: process.env.PORT || 3000,
   host: process.env.HOST || "0.0.0.0",
+  routes: {
+    cors: {
+      origin: ["*"], // an array of origins or 'ignore'
+    },
+  },
 });
 
 export async function createServer(): Promise<Hapi.Server> {
@@ -23,6 +28,11 @@ export async function createServer(): Promise<Hapi.Server> {
     tasksPlugin,
     statusPlugin,
   ]);
+  routes: {
+    cors: {
+      origin: ["*"]; // an array of origins or 'ignore'
+    }
+  }
   return server;
 }
 

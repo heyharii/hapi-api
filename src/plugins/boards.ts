@@ -17,7 +17,6 @@ const boardsPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             params: Joi.object({
               boardId: Joi.number().integer(),
@@ -36,7 +35,6 @@ const boardsPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
         },
       },
       {
@@ -47,7 +45,6 @@ const boardsPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             payload: createBoardValidator,
             failAction: (request, h, err) => {
@@ -65,7 +62,6 @@ const boardsPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             params: Joi.object({
               boardId: Joi.number().integer(),
@@ -86,7 +82,6 @@ const boardsPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             params: Joi.object({
               boardId: Joi.number().integer(),

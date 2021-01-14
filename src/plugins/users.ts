@@ -17,7 +17,6 @@ const usersPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             failAction: (request, h, err) => {
               throw err;
@@ -34,7 +33,6 @@ const usersPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             params: Joi.object({
               userId: Joi.number().integer(),
@@ -54,7 +52,6 @@ const usersPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             payload: userInputValidator,
             failAction: (request, h, err) => {
@@ -72,7 +69,6 @@ const usersPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             params: Joi.object({
               userId: Joi.number().integer(),
@@ -92,7 +88,6 @@ const usersPlugin = {
           auth: {
             mode: "required",
           },
-          cors: true,
           validate: {
             params: Joi.object({
               userId: Joi.number().integer(),
