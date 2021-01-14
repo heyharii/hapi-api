@@ -1,20 +1,20 @@
-name: hapi-api
-on: push
+# name: hapi-api
+# on: push
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-      - name: Run production migration
-        run: npm run migrate-prod
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      - uses: akhileshns/heroku-deploy@v3.8.9
-        name: Deploy to Heroku
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          force: true
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: npm ci
+#       - name: Run production migration
+#         run: npm run migrate-prod
+#         env:
+#           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+#       - uses: akhileshns/heroku-deploy@v3.8.9
+#         name: Deploy to Heroku
+#         with:
+#           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+#           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+#           heroku_email: ${{ secrets.HEROKU_EMAIL }}
+#           force: true
