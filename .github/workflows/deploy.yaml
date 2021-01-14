@@ -11,9 +11,6 @@ jobs:
         run: npm run migrate-prod
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      - run: npm run seed
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - uses: akhileshns/heroku-deploy@v3.8.9
         name: Deploy to Heroku
         with:
